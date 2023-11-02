@@ -1,44 +1,35 @@
-import { useState } from 'react';
-import supabase from '../client';
+/* eslint-disable react/prop-types */
+import supabase from "../client";
+import { useState } from "react";
 
-function AddCrewmates() {
+const UpdateCrewmates = (props) => {
 
-    // const [data, setData] = useState({name: '', color: '', speed: ''});
     const [name, setName] = useState('');
     const [color, setColor] = useState('');
     const [speed, setSpeed] = useState('');
 
-    
 
-    // useEffect(() => {
-
-    //     const addCrewmate = async () => {
-    //         await supabase
-    //             .from('crewmates')
-    //             .insert([
-    //                 { name: data.name, color: data.color, speed: data.speed },
-    //             ]);
-           
-    //     }
-    //     addCrewmate();
-    // }, [data]);
-
-    const handleSubmit = (event) => {
+    const handleOnSubmit = (event) => {
         event.preventDefault();
-        // setData({name: name, color: color, speed: speed});
-        const addData = async () => {
-            await supabase
+        const updateData = async () => {
+            // eslint-disable-next-line no-unused-vars
+            const {data, error} = await supabase
                 .from('crewmates')
-                .insert([
-                    { name: name, color: color, speed: speed },
-                ]);
+                .update(
+                    {name:name, speed:speed, color:color }
+                )
+                .eq('id', props.crewmate.id);
+            
+            if(error) console.log('error', error);
+            
         }
-        addData();
+        updateData();
+        
     }
-  
-    return (
-      <div>
-        <form onSubmit={handleSubmit}>
+
+    return(
+        <div>
+        <form onSubmit={handleOnSubmit}>
             <label>
                 Enter Name:
                 <input 
@@ -70,9 +61,10 @@ function AddCrewmates() {
                 Enter speed:
                 <input
                     type='number'
-                    defaultValue={0}
+                    value={speed}
                     onChange={(event) => setSpeed(event.target.value)}
                 />
+                
                 
             </label>
             <input type="submit"/>
@@ -80,7 +72,7 @@ function AddCrewmates() {
         </form>
         
       </div>
-    )
-  }
-  
-  export default AddCrewmates
+    );
+}
+
+export default UpdateCrewmates;

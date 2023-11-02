@@ -13,6 +13,8 @@ function GetCrewmates() {
       if (error) console.log('error', error);
       setData(data);
     };
+
+    
   
     return (
       <div>
@@ -22,6 +24,7 @@ function GetCrewmates() {
             return (
               <div key={crewmate.id}>
                 <h2>{crewmate.name}</h2>
+                <p>{crewmate.id}</p>
                 <p>{crewmate.color}</p>
                 <p>{crewmate.speed}</p>
               </div>
