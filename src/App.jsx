@@ -1,35 +1,32 @@
 
 import './App.css'
-import GetCrewmates from './Components.jsx/GetCrewmates'
-import AddCrewmates from './Components.jsx/AddCrewmates'
-import UpdateCrewmates from './Components.jsx/UpdateCrewmates'
-import DeleteCrewmates from './Components.jsx/DeleteCrewmates'
-import supabase from './client'
-import { useEffect, useState } from 'react'
+// import GetCrewmates from './Components.jsx/GetCrewmates'
+// import AddCrewmates from './Components.jsx/AddCrewmates'
+// import UpdateCrewmates from './Components.jsx/UpdateCrewmates'
+// import DeleteCrewmates from './Components.jsx/DeleteCrewmates'
+// import supabase from './client'
+// import { useEffect, useState } from 'react'
 
 
 function App() {
 
-  const [crewmate, setCrewmate] = useState(null);
+  // const [crewmate, setCrewmate] = useState(null);
 
-  useEffect(() => {
-    const getCrewmate = async () => {
-      const data = await supabase.from('crewmates').select().eq('id', '1');
+  // useEffect(() => {
+  //   const getCrewmate = async () => {
+  //     const data = await supabase.from('crewmates').select().eq('id', '1');
       
-      setCrewmate(data.data[0]);
+  //     setCrewmate(data.data[0]);
       
       
-    }
-    getCrewmate();
-  },[])
+  //   }
+  //   getCrewmate();
+  // },[])
   
 
   return (
     <div>
-      <GetCrewmates/>
-      <AddCrewmates/>
-      <UpdateCrewmates crewmate={crewmate}/>
-      <DeleteCrewmates crewmate={crewmate}/>
+      
       
       
     </div>
