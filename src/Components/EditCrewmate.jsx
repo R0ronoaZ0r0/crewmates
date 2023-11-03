@@ -20,7 +20,7 @@ const EditCrewmate = () => {
             setData(data[0]);
         }
         getOneCrewmate();
-    },[]);
+    },[data]);
 
     return(
         <div className="edit-page-content">

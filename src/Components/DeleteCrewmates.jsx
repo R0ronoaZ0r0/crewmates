@@ -25,7 +25,7 @@ const DeleteCrewmates = (props) => {
         <div> 
             <Link 
                 onClick={handleOnClick} 
-                to='/viewcrewmates'
+                to='/'
                 style={{border: '1px solid black', borderRadius: '5px', padding:'5px'}}
             >
                 Delete Crewmate

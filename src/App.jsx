@@ -1,9 +1,8 @@
 import './App.css';
-import {BrowserRouter, Routes, Route} from 'react-router-dom';
-import Home from './Components/Home'
+import {Routes, Route, Link} from 'react-router-dom';
 import AddCrewmates from './Components/AddCrewmates'
 import ViewCrewmates from './Components/ViewCrewmates';
-import HomeContent from './Components/HomeContent';
+
 import EditCrewmate from './Components/EditCrewmate';
 
 
@@ -12,38 +11,36 @@ const NotFound = () => {return <h1>404 Not Found</h1>}
 function App() {
 
   return (
-    
-    <BrowserRouter>
+    <div>
+      <div className='home-container'>
+        <nav className="side-nav">
+          <Link to="/" > Home </Link>
+          <Link to="/addcrewmate"> Add a Crewmate </Link>           
+        </nav>
+
         <Routes>
-            <Route path='/' element={<Home/>}>
+          <Route 
+            path='/' 
+            element={<ViewCrewmates/>}
+          />
 
-              <Route
-                path='/home'
-                element={<HomeContent />}
-              />
-            <Route
-                path='/addcrewmate'
-                element={<AddCrewmates />}
-              />
-              <Route
-                path='/viewcrewmates'
-                element={<ViewCrewmates />}
-              />
-              <Route
-                path='*'
-                element={<NotFound />}
-              />
-              <Route
-                path='/edit/:id'
-                element={<EditCrewmate />}
-              />
-              
-              
-              
+          <Route
+            path='/addcrewmate'
+            element={<AddCrewmates />}
+          />
 
-            </Route>        
-        </Routes>
-    </BrowserRouter>
+          <Route
+            path='*'
+            element={<NotFound />}
+          />
+          <Route
+            path='/edit/:id'
+            element={<EditCrewmate />}
+          />
+        </Routes>   
+      </div>
+    </div>
+    
       
       
     

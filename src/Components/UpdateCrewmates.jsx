@@ -24,6 +24,7 @@ const UpdateCrewmates = (props) => {
             
         }
         updateData();
+        alert('Crewmate updated');
         
     }
 
