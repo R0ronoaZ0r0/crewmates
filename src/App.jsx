@@ -1,40 +1,25 @@
 import './App.css';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
-import Home from './Components.jsx/Home'
-import AddCrewmates from './Components.jsx/AddCrewmates'
-import ViewCrewmates from './Components.jsx/ViewCrewmates';
-// import GetCrewmates from './Components.jsx/GetCrewmates'
-// import AddCrewmates from './Components.jsx/AddCrewmates'
-// import UpdateCrewmates from './Components.jsx/UpdateCrewmates'
-// import DeleteCrewmates from './Components.jsx/DeleteCrewmates'
-// import supabase from './client'
-// import { useEffect, useState } from 'react'
+import Home from './Components/Home'
+import AddCrewmates from './Components/AddCrewmates'
+import ViewCrewmates from './Components/ViewCrewmates';
+import HomeContent from './Components/HomeContent';
+import UpdateCrewmates from './Components/UpdateCrewmates';
 
 const NotFound = () => {return <h1>404 Not Found</h1>}
 
 function App() {
 
-  // const [crewmate, setCrewmate] = useState(null);
-
-  // useEffect(() => {
-  //   const getCrewmate = async () => {
-  //     const data = await supabase.from('crewmates').select().eq('id', '1');
-      
-  //     setCrewmate(data.data[0]);
-      
-      
-  //   }
-  //   getCrewmate();
-  // },[])
-  
-
   return (
-    <div>
-      <BrowserRouter>
+    
+    <BrowserRouter>
         <Routes>
-          <Route path='/'
-            element={<Home />}>
+            <Route path='/' element={<Home/>}>
 
+              <Route
+                path='/home'
+                element={<HomeContent />}
+              />
             <Route
                 path='/addcrewmate'
                 element={<AddCrewmates />}
@@ -47,18 +32,17 @@ function App() {
                 path='*'
                 element={<NotFound />}
               />
+              <Route
+                path='/update'
+                element={<UpdateCrewmates/>}
+              />
 
-          </Route>
-            
-
-            
-          
-          
+            </Route>        
         </Routes>
-      </BrowserRouter>
+    </BrowserRouter>
       
       
-    </div>
+    
   )
 }
 
