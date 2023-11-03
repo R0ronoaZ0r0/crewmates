@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import supabase from "../client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const UpdateCrewmates = (props) => {
 
@@ -8,6 +8,21 @@ const UpdateCrewmates = (props) => {
     const [color, setColor] = useState('');
     const [speed, setSpeed] = useState('');
 
+    useEffect(
+        () => {
+            const getOneCrewmate = async () => {
+                const { data, error } = await supabase
+                    .from('crewmates')
+                    .select()
+                    .eq('id', props.id);
+                if(error) console.log('error', error);
+                setName(data[0].name);
+                setColor(data[0].color);
+                setSpeed(data[0].speed);
+            }
+            getOneCrewmate();
+        }, []
+    );
 
     const handleOnSubmit = (event) => {
         event.preventDefault();
