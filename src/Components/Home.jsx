@@ -7,7 +7,7 @@ const Home = () => {
                 <Link to="/addcrewmate"> Add a Crewmate </Link>
                 <Link to="/viewcrewmates"> View All Crewmates </Link>            
             </nav>
-            
+
             <Outlet/>
         </div>
     );

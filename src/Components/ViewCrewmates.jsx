@@ -1,6 +1,7 @@
 import supabase from "../client";
 import { useState, useEffect } from "react";
 import Card from "./Card";
+import { Link } from "react-router-dom";
 
 
 const ViewCrewmates = () => {
@@ -26,7 +27,13 @@ const ViewCrewmates = () => {
                 {
                     data && data.map((crewmate) =>{
                         return(
-                            <Card key={crewmate.id} crewmate={crewmate}/>
+                            <div key={crewmate.id} style={{textAlign:'center'}}>
+                                <Card  crewmate={crewmate}/>
+                                <div>
+                                    <Link to={`/edit/${crewmate.id}`} >Edit Crewmate id: {crewmate.id}</Link>
+                                </div>  
+                            </div>
+                            
                         )
                         
                     })

@@ -18,7 +18,7 @@ const UpdateCrewmates = (props) => {
                 .update(
                     {name:name, speed:speed, color:color }
                 )
-                .eq('id', props.crewmate.id);
+                .eq('id', props.id);
             
             if(error) console.log('error', error);
             
@@ -28,50 +28,51 @@ const UpdateCrewmates = (props) => {
     }
 
     return(
-        <div>
-        <form onSubmit={handleOnSubmit}>
-            <label>
-                Enter Name:
-                <input 
-                    type="text" 
-                    value={name} 
-                    placeholder='Enter your name'
-                    onChange={(event) => setName(event.target.value)}
-                />
-            </label>
-            <label>
-                Select color:
-                <select 
-                    value={color}
-                    onChange={(event) => setColor(event.target.value)}
-                >
-                    <option value='' disabled>Select color</option>
-                    <option value="red">Red</option>
-                    <option value="blue">Blue</option>
-                    <option value="green">Green</option>
-                    <option value="Yellow">Yellow</option>
-                    <option value="Orange">Orange</option>
-                    <option value="Black">Black</option>
-                    <option value="White">White</option>
-                    <option value="Purple">Purple</option>
-                    <option value="Brown">Brown</option>
-                </select>
-            </label>
-            <label>
-                Enter speed:
-                <input
-                    type='number'
-                    value={speed}
-                    onChange={(event) => setSpeed(event.target.value)}
-                />
+        <div className="center">
+            <h3>Update the crewmate</h3>
+            <form onSubmit={handleOnSubmit}>
+                <label>
+                    Enter Name:
+                    <input 
+                        type="text" 
+                        value={name} 
+                        placeholder='Enter new name'
+                        onChange={(event) => setName(event.target.value)}
+                    />
+                </label>
+                <label>
+                    Select new color:
+                    <select 
+                        value={color}
+                        onChange={(event) => setColor(event.target.value)}
+                    >
+                        <option value='' disabled>Select color</option>
+                        <option value="red">Red</option>
+                        <option value="blue">Blue</option>
+                        <option value="green">Green</option>
+                        <option value="Yellow">Yellow</option>
+                        <option value="Orange">Orange</option>
+                        <option value="Black">Black</option>
+                        <option value="White">White</option>
+                        <option value="Purple">Purple</option>
+                        <option value="Brown">Brown</option>
+                    </select>
+                </label>
+                <label>
+                    Select new speed:
+                    <input
+                        type='number'
+                        value={speed}
+                        onChange={(event) => setSpeed(event.target.value)}
+                    />
+                    
+                    
+                </label>
+                <input type="submit" />
                 
-                
-            </label>
-            <input type="submit"/>
-            
-        </form>
+            </form>
         
-      </div>
+        </div>
     );
 }
 

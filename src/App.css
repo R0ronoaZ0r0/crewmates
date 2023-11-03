@@ -77,3 +77,15 @@
 .form-element{
   margin:10px;
 }
+
+.edit-page-content{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  
+}
+
+.center{
+  text-align: center;
+}

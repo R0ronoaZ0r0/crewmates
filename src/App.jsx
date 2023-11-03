@@ -4,7 +4,8 @@ import Home from './Components/Home'
 import AddCrewmates from './Components/AddCrewmates'
 import ViewCrewmates from './Components/ViewCrewmates';
 import HomeContent from './Components/HomeContent';
-import UpdateCrewmates from './Components/UpdateCrewmates';
+import EditCrewmate from './Components/EditCrewmate';
+
 
 const NotFound = () => {return <h1>404 Not Found</h1>}
 
@@ -33,9 +34,12 @@ function App() {
                 element={<NotFound />}
               />
               <Route
-                path='/update'
-                element={<UpdateCrewmates/>}
+                path='/edit/:id'
+                element={<EditCrewmate />}
               />
+              
+              
+              
 
             </Route>        
         </Routes>
